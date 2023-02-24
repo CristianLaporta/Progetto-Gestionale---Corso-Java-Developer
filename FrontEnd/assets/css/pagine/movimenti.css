@@ -1,0 +1,25 @@
+table{
+    background-color: aliceblue;
+    margin-left: 220px;
+    margin-top: 70px;
+    width: 87%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+
+}
+th,td{
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid rgb(194, 194, 194);
+}
+tr img{
+    width: 30px;
+}
+@media only screen and (max-width:811px) {
+
+    table{
+
+        margin-left: 0px;
+        width: 100%;
+    }
+  }

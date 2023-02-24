@@ -1,0 +1,123 @@
+#navbar {
+    background-color: rgb(22, 22, 22);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    color: white;
+    display: flex;
+    z-index: 999;
+}
+#logo{
+    width: 90px;
+}
+#menuLaterale{
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgb(16, 16, 16);
+    width: 200px;
+    height: 100%;
+    z-index: 0;
+    padding-top: 80px;
+}
+ #menuLaterale a{
+display: block;
+   color: wheat;
+margin-left: 20px;
+margin-bottom: 10px;
+text-decoration: none;
+}
+#impostazioni{
+    position: absolute;
+    bottom: 100px;
+}
+#user{
+    position: fixed;
+    right: 20px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+#hamburger-menu{
+ display: block;
+ width: 40px;
+ height: 30px;
+ position: relative;
+margin: 10px;
+cursor: pointer;
+
+
+}
+.line{
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: rgb(73, 73, 73);
+
+    left: 0;
+}
+.line:nth-child(1){
+    top: 0;
+}
+.line:nth-child(2){
+    top: 45%;
+}
+.line:nth-child(3){
+    bottom: 0;
+}
+
+#menu{
+
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background-color: rgb(239, 21, 21);
+    padding: 10px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgb(67, 67, 67);
+}
+.active{
+    display: none;
+}
+#menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+#menu a{
+    text-decoration: none;
+}
+#menu li {
+    margin-bottom: 10px;
+}
+@media only screen and (max-width:811px) {
+    #logo{
+        display: none;
+    }
+    #navbar p{
+        display: none;
+    }
+    #menuLaterale{
+        display: none;
+    }
+}
+@media only screen and (min-width:811px) {
+    #hamburger-menu{
+display: none;
+       }
+       #menu {
+        display: none;
+       }
+}
+.nome{
+position: absolute;
+right: 80px;
+}
+#logout{
+    position: absolute;
+    bottom: 130px;
+}

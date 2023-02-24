@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionale - Impostazioni</title>
+     <!--  script per il corretto funzionamento del hamburger-menu -->
+     <script src="/assets/javascript/hamburgher.js"></script>
+    <link rel="stylesheet" href="/assets/css/pagine/impostazioni.css">
+    <link rel="stylesheet" href="/assets/css/componenti/body.css">
+    <link rel="stylesheet" href="/assets/css/componenti/menuenavbar.css">
+</head>
+<body>
+<!--  componente navbar del sito web -->
+<div id="navbar">
+    <img id="logo" src="/assets/img/logo.png" alt="Logo Aziendale">
+    <p>AziendaNome</p>
+    <img id="user" src="/assets/img/spinnerBlue.gif" alt="user">
+    <button onclick="menu()" id="hamburger-menu" >
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    <nav id="menu"  class="active">
+        <ul>
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/movimenti.html">Gestione Movimenti</a></li>
+            <li><a href="/gestioneutenti.html">Gestione Utenti</a></li>
+            <li> <a  onclick="logout()">Logout</a></li>
+
+        </ul>
+    </nav>
+
+
+</div>
+
+    <!-- componente menu laterale -->
+    <div id="menuLaterale">
+        <a href="/home.html">Home</a>
+        <a href="/movimenti.html">Gestione Movimenti</a>
+        <a href="/gestioneutenti.html">Gestione Utenti</a>
+        <a id="logout" onclick="logout()">Logout</a>
+    </div>
+
+   <!--  card per cambiare il nome utente e la password -->
+   <div id="card">
+    <h2>Cambia i dati del account</h2>
+    <hr>
+ <!--sfida: al posto del link, inserire un input che carica un immagine dal pc e la trasforma in blob per il db, per poi essere utilizzata.-->
+    <label for="imgprofile">Link Immagine Profilo</label>
+    <br>
+    <input id="imgprofile" type="text"  placeholder="Inserisci il link della tua foto profilo">
+    <hr>
+    <label for="email">Email</label>
+    <br>
+    <input id="email" type="email"  placeholder="Inserisci la tua E-Mail">
+    <hr>
+    <label for="tel">Numero di telefono</label>
+    <br>
+    <input id="tel" type="number"  placeholder="Inserisci il tuo numero di telefono">
+    <hr>
+    <label for="name">Nome</label>
+    <br>
+    <input id="name" type="text"  placeholder="Inserisci il tuo nome">
+    <hr>
+    <label for="surname">Cognome</label>
+    <br>
+    <input id="surname" type="text"  placeholder="Inserisci il tuo cognome">
+    <hr>
+    <button onclick="salva()">Salva</button> <button onclick="ripristina()">Ripristina</button>
+   </div>
+   <script src="/assets/javascript/impostazioni.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+#card{
+    margin-left: 220px;
+    margin-top: 70px;
+
+}
+#card input{
+    width: 500px;
+    
+}
+@media only screen and (max-width:811px) {
+
+    #card{
+
+        margin-left: 0px;
+
+    }
+  }

@@ -1,0 +1,47 @@
+
+.cards{
+    margin-left: 330px;
+    margin-top: 60px;
+    display: flex;
+}
+.card{
+    margin-left: 100px;
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border-radius: 5%;
+}
+.card p{
+    text-align: center;
+}
+
+
+h1{
+    text-align: center;
+    margin-top: 80px;
+}
+
+.movimenti{
+    margin-left: 220px;
+    margin-top: 200px;
+}
+@media only screen and (max-width:811px) {
+  .movimenti{
+    margin-left: 0;
+    margin-top: 0;
+}
+
+.cards{
+  margin-left: 0px;
+  margin-top: 0px;
+  display: block;
+}
+.legenda{
+  position:relative;
+  right: 0px;
+  top: 0px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  }
+
+}

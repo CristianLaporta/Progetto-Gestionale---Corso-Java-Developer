@@ -1,0 +1,30 @@
+body{
+    background-color: rgb(65, 62, 62);
+}
+#login{
+    position: absolute;
+    top: 40%;
+    left: 42%;
+  background-color: rgb(18, 18, 32);
+  padding: 50px;
+  border-radius: 5%;
+
+}
+label{
+    color: rgb(255, 255, 255);
+}
+input{
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width:811px) {
+
+    #login{
+        position: absolute;
+        top: 30%;
+        left: 10%;
+width: 100%;
+    background-color: transparent;
+
+    }
+  }

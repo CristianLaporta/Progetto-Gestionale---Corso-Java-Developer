@@ -1,0 +1,53 @@
+.elenco-utenti{
+    background-color: aliceblue;
+ margin-left: 210px;   
+ margin-top: 65px;
+ list-style: none;
+}
+.elenco-utenti li {
+    display: flex;
+    align-items: center;
+margin-bottom: 20px;
+}
+.immagine-utente img{
+border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border-style: groove;
+    
+
+}
+.dettagli-utente {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+   margin-left: 50px;
+}
+hr{
+    margin-bottom: 20px;
+}
+h4{
+    color: rgb(56, 56, 56);
+    font-size: small;
+}
+.button img{
+    width: 30px;
+    margin-left: 40px;
+
+}
+.button{
+    position: absolute;
+    display: flex;
+    right: 40px;
+}
+
+.button div{
+    text-align: center;
+}
+@media only screen and (max-width:811px) {
+
+    .elenco-utenti{
+
+     margin-left: 0px;   
+
+    }
+  }

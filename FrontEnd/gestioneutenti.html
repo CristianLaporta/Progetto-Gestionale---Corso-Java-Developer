@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/assets/css/pagine/gestioneutenti.css">
+    <link rel="stylesheet" href="/assets/css/componenti/body.css">
+    <link rel="stylesheet" href="/assets/css/componenti/menuenavbar.css">
+    <title>Gestionale - Gestione Utenti</title>
+   <!--  script per il corretto funzionamento del hamburger-menu -->
+    <script src="/assets/javascript/hamburgher.js"></script>
+</head>
+
+<body>
+<!--  componente navbar del sito web -->
+<div id="navbar">
+    <img id="logo" src="/assets/img/logo.png" alt="Logo Aziendale">
+    <p>AziendaNome</p>
+    <img id="user" src="/assets/img/spinnerBlue.gif" alt="user">
+    <button onclick="menu()" id="hamburger-menu" >
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    <nav id="menu"  class="active">
+        <ul>
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/movimenti.html">Gestione Movimenti</a></li>
+            <li> <a href="/impostazioni.html">Impostazioni</a></li>
+            <li> <a  onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+
+</div>
+    <!-- componente menu laterale -->
+    <div id="menuLaterale">
+        <a href="/home.html">Home</a>
+        <a href="/movimenti.html">Gestione Movimenti</a>
+        <a id="impostazioni" href="/impostazioni.html">Impostazioni</a>
+        <a id="logout" onclick="logout()">Logout</a>
+    </div>
+
+
+    <!-- componente che gestirà gli utenti -->
+    <ul id="userp" class="elenco-utenti">
+
+      
+    </ul>
+
+
+
+    <script src="/assets/javascript/gestioneutenti.js"></script>
+</body>
+
+</html>
