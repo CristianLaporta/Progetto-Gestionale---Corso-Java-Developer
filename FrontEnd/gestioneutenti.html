@@ -8,9 +8,10 @@
     <link rel="stylesheet" href="/assets/css/pagine/gestioneutenti.css">
     <link rel="stylesheet" href="/assets/css/componenti/body.css">
     <link rel="stylesheet" href="/assets/css/componenti/menuenavbar.css">
+    <link rel="stylesheet" href="/assets/css/componenti/modal.css">
     <title>Gestionale - Gestione Utenti</title>
-   <!--  script per il corretto funzionamento del hamburger-menu -->
-    <script src="/assets/javascript/hamburgher.js"></script>
+   <!--  script per il corretto funzionamento di molte porzioni di codice condivisi -->
+    <script src="/assets/javascript/control.js"></script>
 </head>
 
 <body>
@@ -50,8 +51,42 @@
       
     </ul>
 
+<!-- modal -->
+<div id="modal" class="scale-in-center displaynone">
+<!--     ci troviamo al interno del modal -->
 
 
+<button class="myButton" onclick="modal()">X</button>
+
+<h3 class="modalh3">Gestisci utente</h3>
+<div id="label">
+<label for="email">Email</label>
+<br>
+<input type="email" id="email" placeholder="Inserisci la tua E-Mail">
+<br>
+<label for="password">Password</label>
+<br>
+<input type="password" id="password" placeholder="Inserisci la tua Password">
+<br>
+
+<label for="name">Nome</label>
+<br>
+<input type="text" id="nome" placeholder="Inserisci il tuo nome">
+<br>
+<label for="surname">Cognome</label>
+<br>
+<input type="text" id="cognome" placeholder="Inserisci il tuo cognome">
+<br>
+<label for="tel">Telefono</label>
+<br>
+<input type="tel" id="telefono" placeholder="Inserisci il tuo telefono">
+<br>
+</div>
+<div id="buttonmodal">
+<button onclick="applicamodifica()" class="myButton2">Applica Modifiche</button><button class="myButton2" onclick="resetmodal('gestioneutenti')">Reset Campi</button><button class="myButton2" onclick="resetdefault()">Reset dati utente</button>
+</div>
+<!-- fine del modal -->
+</div>
     <script src="/assets/javascript/gestioneutenti.js"></script>
 </body>
 

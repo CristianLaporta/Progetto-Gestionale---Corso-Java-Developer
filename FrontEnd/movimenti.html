@@ -6,11 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionale - Gestione Prodotti</title>
-     <!--  script per il corretto funzionamento del hamburger-menu -->
-     <script src="/assets/javascript/hamburgher.js"></script>
+   <!--  script per il corretto funzionamento di molte porzioni di codice condivisi -->
+   <script src="/assets/javascript/control.js"></script>
     <link rel="stylesheet" href="/assets/css/pagine/movimenti.css">
     <link rel="stylesheet" href="/assets/css/componenti/body.css">
     <link rel="stylesheet" href="/assets/css/componenti/menuenavbar.css">
+    <link rel="stylesheet" href="/assets/css/componenti/modal.css">
 </head>
 
 <body>
@@ -64,6 +65,44 @@
     </tbody>
 </table>
 
+<!-- modal -->
+<div id="modal" class="scale-in-center displaynone">
+    <!--     ci troviamo al interno del modal -->
+    
+    
+    <button class="myButton" onclick="modal()">X</button>
+    
+    <h3 class="modalh3">Gestisci Movimento</h3>
+    <div id="label">
+     <!--    qui ci inserisco un calendar -->
+    <label for="data">Data</label>
+    <br>
+    <input type="date" id="data" placeholder="Inserisci la data">
+    <br>
+    <label for="descrizione">Descrizione</label>
+    <br>
+    <input type="text" id="descrizione" placeholder="Inserisci la descrizione">
+    <br>
+    
+    <label for="importo">importo</label>
+    <br>
+    <input type="text" id="importo" placeholder="Inserisci il tuo importo">
+    <br>
+    <p>Tipo di transazione</p>
+<!--     qui ci inserisco un radius -->
+<label for="entrata">Entrata</label>
+<input type="radio" id="entrata" name="opzioni" value="Entrata">
+
+<label for="uscita">Uscita</label>
+<input type="radio" id="uscita" name="opzioni" value="Uscita">
+
+    <br>
+    </div>
+    <div id="buttonmodal">
+    <button onclick="applicamodifica()" class="myButton2">Applica Modifiche</button><button class="myButton2" onclick="resetmodal('gestionemovimenti')">Reset Campi</button><button class="myButton2" onclick="resetdefault()">Reset dati Movimenti</button>
+    </div>
+    <!-- fine del modal -->
+    </div>
     <script src="/assets/javascript/gestioneprodotti.js"></script>
 </body>
 

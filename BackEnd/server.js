@@ -219,6 +219,66 @@ app.delete('/eliminaprodotto', (req, res) =>{
 
 
 
+//creo un api post che modifica gli utenti
+app.put('/modificautente', (req, res) =>{
+    //chiediamo al database se esiste un utente con email specificata da front end e con token specificata dal front end.
+    connection.query("SELECT * FROM utenti WHERE email = '"+req.body.email+"' AND token = '"+req.body.token+"' ", function (err, risposta2){
+        //se si crea un errore, allora stampa in console un messaggio
+          if(err){
+              console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+          }
+          if(risposta2.length == 0){
+              res.json(false)
+          }else{
+if(risposta2[0].admin == "true"){
+         connection.query("UPDATE `utenti` SET `nome` = '"+req.body.nome2+"', `cognome` = '"+req.body.cognome2+"', `email` = '"+req.body.email2+"', `telefono` = '"+req.body.telefono2+"' WHERE `utenti`.`id` = "+req.body.id2+";",function (err, risposta3){
+       if(err){
+        res.json(err)
+       }
+       else{
+        cambiamail(req.body.semail,req.body.email2)
+        res.json(true)
+       }
+         })}else{
+            res.json("noadmin");
+         }
+          }
+          })
+
+});
+
+//creo un api post che modifica gli utenti
+app.put('/modificaprodotto', (req, res) =>{
+    //chiediamo al database se esiste un utente con email specificata da front end e con token specificata dal front end.
+    connection.query("SELECT * FROM utenti WHERE email = '"+req.body.email+"' AND token = '"+req.body.token+"' ", function (err, risposta2){
+        //se si crea un errore, allora stampa in console un messaggio
+          if(err){
+              console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+          }
+          if(risposta2.length == 0){
+              res.json(false)
+          }else{
+
+            connection.query("SELECT * FROM `movimenti` WHERE id = '"+req.body.ids+"'", function (err, risposta3){
+                if(risposta2[0].email == risposta3[0].creatore || risposta2[0].admin == "true"){
+
+               
+        if(risposta2.length != 0){
+            console.log(req.body.descrizione)
+            connection.query("UPDATE `movimenti` SET `data` = '"+req.body.data+"', `descrizione` = '"+req.body.descrizione+"', `importo` = '"+req.body.importo+"', `tipo` = '"+req.body.radius+"' WHERE `movimenti`.`id` = '"+req.body.ids+"';", function (err, risposta2){
+                res.json(true)
+                  }) }
+        }else{
+            res.json("nopermessi")
+          }
+    })
+          }
+
+          })
+
+});
+
+
 
 
 
@@ -269,4 +329,15 @@ connection.query("INSERT INTO `ultimeoperazioni` (`id`, `dataora`, `log`) VALUES
           }
 
           })
+}
+
+function cambiamail(emailvecchia,emailnuova){
+    connection.query("UPDATE `movimenti` SET `creatore` = '"+emailnuova+"' WHERE `movimenti`.`creatore` = '"+emailvecchia+"';", function (err, risposta){
+        //se si crea un errore, allora stampa in console un messaggio
+          if(err){
+              console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+          }
+
+          })
+
 }
