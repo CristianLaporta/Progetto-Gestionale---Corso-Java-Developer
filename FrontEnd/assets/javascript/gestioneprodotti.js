@@ -36,7 +36,7 @@ if(email == data[contatore].creatore || ruolo == "true"){
     <td>${data[contatore].tipo}</td>
     <td>${data[contatore].nome} (${data[contatore].creatore})</td>
     <td><img onclick="rimuoviprodotto(${data[contatore].id})" src="/assets/img/icon/trash.png" alt="trash"></td>
-    <td><img src="/assets/img/icon/pen.png" onclick="modal('${data[contatore].data}','${data[contatore].descrizione}','${data[contatore].importo}','${data[contatore].tipo}','${data[contatore].id}')" alt="pen"></td>
+    <td><img src="/assets/img/icon/pen.png" onclick="modal('modifica','${data[contatore].data}','${data[contatore].descrizione}','${data[contatore].importo}','${data[contatore].tipo}','${data[contatore].id}')" alt="pen"></td>
     `;
     
 }else{
@@ -108,11 +108,41 @@ let datas;
 let descriziones;
 let importos;
 let ids;
-
   //function che ci servirà per aprire un modal
-function modal(data,descrizione,importo,tipo,id) {
+function modal(tipo2,data,descrizione,importo,tipo,id) {
   const modal = document.getElementById("modal");
   modal.classList.toggle("displaynone");
+if(tipo2 == "modifica"){
+
+modal.innerHTML = `
+ <!--     ci troviamo al interno del modal -->
+<button class="myButton" onclick="modal()">X</button>
+<h3 class="modalh3">Gestisci Movimento</h3>
+<div id="label">
+ <!--    qui ci inserisco un calendar -->
+<label for="data">Data</label>
+<br>
+<input type="date" id="data" placeholder="Inserisci la data">
+<br>
+<label for="descrizione">Descrizione</label>
+<br>
+<input type="text" id="descrizione" placeholder="Inserisci la descrizione">
+<br>
+<label for="importo">importo</label>
+<br>
+<input type="text" id="importo" placeholder="Inserisci il tuo importo">
+<br>
+<p>Tipo di transazione</p>
+<!--     qui ci inserisco un radius -->
+<label for="entrata">Entrata</label>
+<input type="radio" id="entrata" name="opzioni" value="Entrata">
+<label for="uscita">Uscita</label>
+<input type="radio" id="uscita" name="opzioni" value="Uscita">
+<br>
+</div>
+<div id="buttonmodal">
+<button onclick="applicamodifica()" class="myButton2">Applica Modifiche</button><button class="myButton2" onclick="resetmodal('gestionemovimenti')">Reset Campi</button><button class="myButton2" onclick="resetdefault()">Reset dati Movimenti</button>
+`
 if(tipo == "entrata"){
   document.getElementById("entrata").setAttribute("checked", "true");
 
@@ -127,6 +157,38 @@ document.getElementById("importo").value= importo;
 descriziones= descrizione;
 importos = importo;
 datas= data;
+}else if(tipo2 == "crea"){
+  modal.innerHTML = `
+  <!--     ci troviamo al interno del modal -->
+ <button class="myButton" onclick="modal()">X</button>
+ <h3 class="modalh3">Crea Movimento</h3>
+ <div id="label">
+  <!--    qui ci inserisco un calendar -->
+ <label for="data">Data</label>
+ <br>
+ <input type="date" id="data" placeholder="Inserisci la data">
+ <br>
+ <label for="descrizione">Descrizione</label>
+ <br>
+ <input type="text" id="descrizione" placeholder="Inserisci la descrizione">
+ <br>
+ <label for="importo">importo</label>
+ <br>
+ <input type="text" id="importo" placeholder="Inserisci il tuo importo">
+ <br>
+ <p>Tipo di transazione</p>
+ <!--     qui ci inserisco un radius -->
+ <label for="entrata">Entrata</label>
+ <input type="radio" id="entrata" name="opzioni" value="Entrata">
+ <label for="uscita">Uscita</label>
+ <input type="radio" id="uscita" name="opzioni" value="Uscita">
+ <br>
+ </div>
+ <div id="buttonmodal">
+ <button onclick="creamovimento()" class="myButton2">Applica Modifiche</button><button class="myButton2" onclick="resetmodal('gestionemovimenti')">Reset Campi</button>
+ `
+}
+
 }
 //function che resetta i valori di default del utente selezionato
 function resetdefault() {
@@ -189,4 +251,58 @@ function applicamodifica() {
       console.log(error);
     });
 
+}
+
+function creamovimento(){
+  const modal = document.getElementsByName("opzioni");
+  let radius;
+  if(modal[0].checked == true){
+    radius = "Entrata"
+  }else{
+   radius = "Uscita"
+  } 
+  const data =document.getElementById("data").value;
+  const importo = document.getElementById("importo").value;
+  const descrizione = document.getElementById("descrizione").value;
+if(data.length !=0 && importo.length != 0 && descrizione.length != 0 && radius != undefined){
+
+  fetch("http://localhost:3000/aggiungiprodotto", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: email,
+      token: token,
+     radius: radius,
+      data: data,
+      importo: importo,
+      descrizione: descrizione,
+    }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data == false) {
+        alert(
+          "Sei stato disconnesso in quanto il token salvato nel tuo browser non sembra essere vero."
+        );
+        localStorage.removeItem("token");
+        localStorage.removeItem("email");
+        location.href = "/index.html";
+      } else if (data == true) {
+     alert("prodotto Aggiunto con successo!")
+     //aggiorno la pagina in modo tale che l'utente si aggiorni
+     location.reload();
+      
+    }else if (data == "nopermessi"){
+      alert("Non hai i permessi per modificare la tabella!");
+    }
+  
+  }
+      
+      )
+    .catch((error) => {
+      console.log(error);
+    });
+  }
 }

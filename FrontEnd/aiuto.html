@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestionale - Contatta gli admin!</title>
+    <link rel="stylesheet" href="/assets/css/pagine/aiuto.css">
+    <link rel="stylesheet" href="/assets/css/componenti/body.css">
+    <link rel="stylesheet" href="/assets/css/componenti/menuenavbar.css">
+</head>
+<body>
+
+ <!--  componente navbar del sito web -->
+ <div id="navbar">
+    <img id="logo" src="/assets/img/logo.png" alt="Logo Aziendale">
+    <p>AziendaNome</p>
+    <img id="user" src="/assets/img/spinnerBlue.gif" alt="user">
+    <button onclick="menu()" id="hamburger-menu" >
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+    </button>
+    <nav id="menu"  class="active">
+        <ul id="ulmenu2">
+            <li><a href="/gestioneutenti.html">Gestione Utenti</a></li>
+            <li><a href="/movimenti.html">Gestione Movimenti</a></li>
+            <li> <a href="/impostazioni.html">Impostazioni</a></li>
+            <li> <a  onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+
+</div>
+
+<!-- componente menu laterale -->
+<div id="menuLaterale2">
+    <a href="/gestioneutenti.html">Gestione Utenti</a>
+    <a href="/movimenti.html">Gestione Movimenti</a>
+    <a id="impostazioni" href="/impostazioni.html">Impostazioni</a>
+    <a id="logout" onclick="logout()">Logout</a>
+</div>
+<div id="contatta">
+    <h2>Contatta gli admin</h2>
+   <textarea name="aiuto" id="aiuto"  cols="30" rows="10"></textarea>
+   <br>
+    <button onclick="invia()">Invia</button> <button onclick="reset()">Reset</button>
+</div>
+
+
+
+
+    <script src="/assets/javascript/control.js"></script>
+    <script src="/assets/javascript/aiuto.js"></script>
+</body>
+</html>

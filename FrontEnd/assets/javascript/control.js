@@ -42,7 +42,7 @@ if (dato == null) {
         const imgProfile = document.getElementById("user");
         imgProfile.src = data[0].linkImgProfile;
         localStorage.setItem("ruolo", user[0].admin);
-        adminpannel();
+        menusp();
       }
     })
     .catch((error) => {
@@ -56,8 +56,8 @@ function logout() {
   localStorage.removeItem("email");
   location.href = "/index.html";
 }
-//funzione per far spawnare il pannello admin in caso in cui sia loggato un admin.
-function adminpannel() {
+//funzione per far spawnare i tag a in base al ruolo ( se admin fa spuntare il tag per andare nel admin pannel, altrimenti fa spuntare il tag per chiedere aiuto.)
+function menusp() {
   let admin = localStorage.getItem("ruolo");
   if (admin == "true") {
     const menu = document.getElementById("menuLaterale");
@@ -70,6 +70,19 @@ function adminpannel() {
     const li = document.createElement("li");
     a2.textContent = "Pannello Admin";
     a2.href = "/admin.html";
+    li.appendChild(a2);
+    menu2.appendChild(li);
+  }else{
+    const menu = document.getElementById("menuLaterale");
+    const a = document.createElement("a");
+    a.href = "/aiuto.html";
+    a.textContent = "Contatta gli Admin";
+    menu.appendChild(a);
+    const a2 = document.createElement("a");
+    const menu2 = document.getElementById("ulmenu");
+    const li = document.createElement("li");
+    a2.textContent = "Contatta gli Admin";
+    a2.href = "/aiuto.html";
     li.appendChild(a2);
     menu2.appendChild(li);
   }

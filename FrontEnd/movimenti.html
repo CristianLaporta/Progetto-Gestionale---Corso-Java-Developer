@@ -47,6 +47,8 @@
         <a id="logout" onclick="logout()">Logout</a>
     </div>
 <!-- componente per la tabella delle entrate e delle uscite -->
+<button id="add" onclick="modal('crea',undefined,undefined,undefined,undefined,undefined)">Aggiungi un Movimento</button>
+<br><br>
 <table id="tabella">
     <thead>
         <tr>
@@ -67,41 +69,14 @@
 
 <!-- modal -->
 <div id="modal" class="scale-in-center displaynone">
-    <!--     ci troviamo al interno del modal -->
-    
-    
-    <button class="myButton" onclick="modal()">X</button>
-    
-    <h3 class="modalh3">Gestisci Movimento</h3>
-    <div id="label">
-     <!--    qui ci inserisco un calendar -->
-    <label for="data">Data</label>
-    <br>
-    <input type="date" id="data" placeholder="Inserisci la data">
-    <br>
-    <label for="descrizione">Descrizione</label>
-    <br>
-    <input type="text" id="descrizione" placeholder="Inserisci la descrizione">
-    <br>
-    
-    <label for="importo">importo</label>
-    <br>
-    <input type="text" id="importo" placeholder="Inserisci il tuo importo">
-    <br>
-    <p>Tipo di transazione</p>
-<!--     qui ci inserisco un radius -->
-<label for="entrata">Entrata</label>
-<input type="radio" id="entrata" name="opzioni" value="Entrata">
+   
 
-<label for="uscita">Uscita</label>
-<input type="radio" id="uscita" name="opzioni" value="Uscita">
-
-    <br>
-    </div>
-    <div id="buttonmodal">
-    <button onclick="applicamodifica()" class="myButton2">Applica Modifiche</button><button class="myButton2" onclick="resetmodal('gestionemovimenti')">Reset Campi</button><button class="myButton2" onclick="resetdefault()">Reset dati Movimenti</button>
-    </div>
+</div>
     <!-- fine del modal -->
+
+
+
+
     </div>
     <script src="/assets/javascript/gestioneprodotti.js"></script>
 </body>

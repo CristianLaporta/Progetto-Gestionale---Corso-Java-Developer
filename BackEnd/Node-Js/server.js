@@ -144,8 +144,102 @@ connection.query("SELECT * FROM `movimenti` ORDER BY id DESC ", function (err, r
           })
 
 });
+//creo un api post che mi restiusice tutti i prodotti aggiunti nella pagina web
+app.post('/inviasos', (req, res) =>{
+    //chiediamo al database se esiste un utente con email specificata da front end e con token specificata dal front end.
+    connection.query("SELECT * FROM utenti WHERE email = '"+req.body.email+"' AND token = '"+req.body.token+"' ", function (err, risposta){
+        //se si crea un errore, allora stampa in console un messaggio
+          if(err){
+              console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+          }
+          if(risposta.length == 0){
+              res.json(false)
+          }else{
+    //creo una richiesta al database inserendo una query che mi cerca ciò che voglio
+connection.query("INSERT INTO `aiuto` (`id`, `reclamo`, `idutente`, `data`) VALUES (NULL, '"+req.body.reclamo+"', '"+risposta[0].id+"', current_timestamp()); ", function (err, risposta2){
+    if(err){
+        console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+    }
+    res.json(true)
+    })
+          }
+          })
+
+});
 
 
+//creo un api post che mi permette di creare dei reclami
+app.post('/aiuto', (req, res) =>{
+
+    //chiediamo al database se esiste un utente con email specificata da front end e con token specificata dal front end.
+    connection.query("SELECT * FROM utenti WHERE email = '"+req.body.email+"' AND token = '"+req.body.token+"' ", function (err, risposta){
+        //se si crea un errore, allora stampa in console un messaggio
+          if(err){
+              console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+          }
+          if(risposta.length == 0){
+              res.json("false")
+          }else{
+            if(risposta[0].admin == "true"){
+                console.log("sono entrato nel true")
+    //creo una richiesta al database inserendo una query che mi cerca ciò che voglio
+connection.query("SELECT * FROM `aiuto` ORDER BY id DESC LIMIT 1 OFFSET "+req.body.ciclo, function (err, risposta2){
+    if(err){
+        console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+    }
+    if(risposta2.length !=0){
+        connection.query("SELECT * FROM `utenti` WHERE id = "+risposta2[0].idutente, function (err, risposta3){
+            if(err){
+                console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+            }
+            let rispos = {
+                nome:risposta3[0].nome,
+                cognome:risposta3[0].cognome,
+                email:risposta3[0].email,
+                data: risposta2[0].data,
+                reclamo: risposta2[0].reclamo
+            
+            }
+        res.json(rispos)
+          
+            })
+    }else{
+        res.json("fine")
+    }
+  
+    })
+          }else{
+            res.json("false")
+          }}
+          })
+
+});
+
+//creo un api post che mi permette di avere la length aggiornata
+app.post('/aiutol', (req, res) =>{
+
+    //chiediamo al database se esiste un utente con email specificata da front end e con token specificata dal front end.
+    connection.query("SELECT * FROM utenti WHERE email = '"+req.body.email+"' AND token = '"+req.body.token+"' ", function (err, risposta){
+        //se si crea un errore, allora stampa in console un messaggio
+          if(err){
+              console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+          }
+          if(risposta.length == 0){
+              res.json("false")
+          }else{
+            if(risposta[0].admin == "true"){
+connection.query("SELECT * FROM `aiuto` ", function (err, risposta2){
+    if(err){
+        console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+    }
+    res.json(risposta2.length)
+    })
+          }else{
+            res.json("false")
+          }}
+          })
+
+});
 
 //creo un api post che mi elimina un utente
 app.delete('/eliminauser', (req, res) =>{
@@ -217,7 +311,29 @@ app.delete('/eliminaprodotto', (req, res) =>{
 });
 
 
+//creo un api put per le impostazioni
+app.put('/impostazioni', (req, res) =>{
+    //chiediamo al database se esiste un utente con email specificata da front end e con token specificata dal front end.
+    connection.query("SELECT * FROM utenti WHERE email = '"+req.body.email+"' AND token = '"+req.body.token+"' ", function (err, risposta2){
+        //se si crea un errore, allora stampa in console un messaggio
+          if(err){
+              console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+          }
+          if(risposta2.length == 0){
+              res.json(false)
+          }else{
+            connection.query("UPDATE `utenti` SET `nome` = '"+req.body.name+"', `cognome` = '"+req.body.surname+"', `email` = '"+req.body.email2+"', `linkImgProfile` = '"+req.body.imgprofile+"', `telefono` = '"+req.body.tel+"' WHERE `utenti`.`id` = "+risposta2[0].id+";", function (err,risposta2){
+if(err){
+    res.json("errore")
+}else{
+    res.json(true)
+}
 
+                })
+          }
+          })
+
+});
 
 //creo un api post che modifica gli utenti
 app.put('/modificautente', (req, res) =>{
@@ -277,6 +393,24 @@ app.put('/modificaprodotto', (req, res) =>{
           })
 
 });
+
+
+//creo un api post che modifica gli utenti
+app.post('/aggiungiprodotto', (req, res) =>{
+    //chiediamo al database se esiste un utente con email specificata da front end e con token specificata dal front end.
+    connection.query("SELECT * FROM utenti WHERE email = '"+req.body.email+"' AND token = '"+req.body.token+"' ", function (err, risposta2){
+        //se si crea un errore, allora stampa in console un messaggio
+          if(err){
+              console.log("ci sono degli errori nella ricerca degli utenti. errore: "+err)
+          }
+          if(risposta2.length == 0){
+              res.json(false)
+          }else{
+            connection.query("INSERT INTO `movimenti` (`id`, `data`, `descrizione`, `importo`, `tipo`, `creatore`, `nome`) VALUES (NULL, '"+req.body.data+"', '"+req.body.descrizione+"', '"+req.body.importo+"', '"+req.body.radius+"', '"+risposta2[0].email+"', '"+risposta2[0].nome+" "+risposta2[0].cognome+"');", function (err, risposta2){
+                res.json(true)
+                  }) }
+        }
+    )});
 
 
 
