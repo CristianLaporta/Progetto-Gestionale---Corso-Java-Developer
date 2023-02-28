@@ -22,12 +22,14 @@ h1{
 
 .movimenti{
     margin-left: 220px;
-    margin-top: 200px;
+    margin-top: 70px;
 }
 @media only screen and (max-width:811px) {
   .movimenti{
-    margin-left: 0;
+    margin-left: -18px;
     margin-top: 0;
+    
+  padding: 0px;
 }
 
 .cards{
@@ -44,4 +46,55 @@ h1{
   margin-bottom: 50px;
   }
 
+}
+h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid gray;
+  margin-bottom: 20px;
+}
+/* CSS per la sezione movimenti */
+.movimenti {
+
+  width: 100%;
+  max-width: 1600px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.movimenti h2 {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.movimenti h3 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.movimenti p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.movimenti hr {
+  border: none;
+  border-top: 2px solid #ccc;
+  margin: 30px 0;
 }

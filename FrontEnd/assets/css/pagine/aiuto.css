@@ -1,25 +1,56 @@
-#contatta{
-    margin-left: 220px;
-    margin-top: 80px;
+#contatta {
+  margin-left: 220px;
+  margin-top: 80px;
 }
-textarea{
+
+textarea {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  color: #333;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  textarea {
     width: 100%;
-    height: 50px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    color: #333;
-    font-size: 16px;
   }
-  @media screen and (max-width: 768px) {
-    textarea {
-      width: 100%;
-    }
+}
+
+@media screen and (min-width: 768px) {
+  textarea {
+    width: 400px;
   }
-  
-  @media screen and (min-width: 768px) {
-    textarea {
-      width: 400px;
-    }
+}
+
+/* stili per il componente #contatta */
+#contatta {
+  margin-left: 220px;
+  margin-top: 80px;
+}
+
+textarea {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #333;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 768px) {
+  textarea {
+    width: 100%;
   }
+}
+
+@media screen and (min-width: 768px) {
+  textarea {
+    width: 400px;
+  }
+}

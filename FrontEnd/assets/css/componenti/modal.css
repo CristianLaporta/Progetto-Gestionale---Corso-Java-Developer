@@ -1,118 +1,127 @@
-/* classe che ci serve per eliminare/ attivare il modal */
+/* classe che ci serve per eliminare/attivare il modal */
 .displaynone{
-    display: none;
-}
-
-#modal{
-    background-color: rgb(89, 89, 89);
-    width: 50%;
-    height: 70%;
-    position: fixed;
-    z-index: 9999;
-    top: 20%;
-    left: 30%;
-    border-radius: 3%;
-    
-}
-.scale-in-center {
-	-webkit-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-	        animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-/* keyframe per l'animazione del modal */
-@-webkit-keyframes scale-in-center {
-    0% {
-      -webkit-transform: scale(0);
-              transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      opacity: 1;
-    }
+  display: none;
   }
+  
+  #modal{
+  background-color: #f7f7f7;
+  width: 70%;
+  height: auto;
+  max-height: 80%;
+  overflow-y: auto;
+  position: fixed;
+  z-index: 9999;
+  top: 10%;
+  left: 15%;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  }
+  
+  .scale-in-center {
+  animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  }
+  
+  /* keyframe per l'animazione del modal */
   @keyframes scale-in-center {
-    0% {
-      -webkit-transform: scale(0);
-              transform: scale(0);
-      opacity: 1;
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-      opacity: 1;
-    }
+  0% {
+  transform: scale(0);
+  opacity: 1;
+  }
+  100% {
+  transform: scale(1);
+  opacity: 1;
+  }
   }
   
   .myButton {
-    position: absolute;
-    right: 10px;
-    top: 10px;
-	box-shadow:inset 0px 1px 0px 0px #f7c5c0;
-	background:linear-gradient(to bottom, #fc8d83 5%, #e4685d 100%);
-	background-color:#fc8d83;
-	border-radius:6px;
-	border:1px solid #d83526;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:13px;
-	font-weight:bold;
-	padding:2px 5px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #b23e35;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #e4685d 5%, #fc8d83 100%);
-	background-color:#e4685d;
-}
-
-    #label{
-       position: absolute;
-       left: 30%;
-       top: 20%;
-       color: white;
-      
-    }
-    input{
-        width: 100%;
-        margin-top: 20px;
-        margin-bottom: 20px;
-    }
-    .modalh3{
-        text-align: center;
-        color: white
-    }
-    #buttonmodal{
-        position: absolute;
-        bottom: 10px;
-        left: 20%;
-    }
-
-    .myButton2 {
-        box-shadow: 0px 1px 0px 0px #fff6af;
-        background:linear-gradient(to bottom, #ffec64 5%, #ffab23 100%);
-        background-color:#ffec64;
-        border-radius:6px;
-        border:1px solid #ffaa22;
-        display:inline-block;
-        cursor:pointer;
-        color:#333333;
-        font-family:Arial;
-        font-size:15px;
-        font-weight:bold;
-        padding:6px 24px;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #ffee66;
-    }
-    .myButton2:hover {
-        background:linear-gradient(to bottom, #ffab23 5%, #ffec64 100%);
-        background-color:#ffab23;
-    }
-    .myButton2:active {
-        position:relative;
-        top:1px;
-    }
-    
-            
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border: none;
+  background-color: transparent;
+  color: #333;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+  }
+  
+  .myButton:hover {
+  color: #f00;
+  }
+  
+  #label{
+  margin-bottom: 20px;
+  color: #333;
+  }
+  
+  label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 14px;
+  }
+  
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="tel"] {
+  width: 98%;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background-color: #eee;
+  margin-bottom: 10px;
+  font-size: 16px;
+  }
+  
+  input[type="email"]:focus,
+  input[type="password"]:focus,
+  input[type="text"]:focus,
+  input[type="tel"]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  background-color: #fff;
+  }
+  
+  .modalh3{
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+  font-size: 24px;
+  }
+  
+  #buttonmodal{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  }
+  
+  .myButton2 {
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+  background-color: #f00;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  }
+  
+  .myButton2:hover {
+  background-color: #c00;
+  }
+  
+  .myButton2:active {
+  transform: translateY(1px);
+  }
+  
+  /* Media query per rendere il modal responsive */
+  @media (max-width: 768px) {
+  #modal {
+  width: 90%;
+  left: 5%;
+  }
+  }

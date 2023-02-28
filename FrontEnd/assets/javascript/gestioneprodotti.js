@@ -185,7 +185,7 @@ datas= data;
  <br>
  </div>
  <div id="buttonmodal">
- <button onclick="creamovimento()" class="myButton2">Applica Modifiche</button><button class="myButton2" onclick="resetmodal('gestionemovimenti')">Reset Campi</button>
+ <button onclick="creamovimento()" class="myButton2">Crea</button><button class="myButton2" onclick="resetmodal('gestionemovimenti')">Reset Campi</button>
  `
 }
 

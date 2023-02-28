@@ -37,16 +37,25 @@
 
     <!-- componente menu laterale -->
     <div id="menuLaterale">
-        <a href="/home.html">Home</a>
-        <a href="/movimenti.html">Gestione Movimenti</a>
-        <a href="/gestioneutenti.html">Gestione Utenti</a>
-        <a id="logout" onclick="logout()">Logout</a>
+        <a href="/home.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+            <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"/>
+          </svg> Home</a>
+        <a href="/movimenti.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+          </svg> Gestione Movimenti</a>
+        <a href="/gestioneutenti.html"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5zm14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5z"/>
+          </svg>Gestione Utenti</a>
+               <a id="logout" onclick="logout()"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-door-closed" viewBox="0 0 16 16">
+            <path d="M3 2a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v13h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V2zm1 13h8V2H4v13z"/>
+            <path d="M9 9a1 1 0 1 0 2 0 1 1 0 0 0-2 0z"/>
+          </svg>Logout</a>
     </div>
 
    <!--  card per cambiare il nome utente e la password -->
    <div id="card">
     <h2>Cambia i dati del account</h2>
-    <hr>
+
  <!--sfida: al posto del link, inserire un input che carica un immagine dal pc e la trasforma in blob per il db, per poi essere utilizzata.-->
     <label for="imgprofile">Link Immagine Profilo</label>
     <br>
@@ -67,7 +76,7 @@
     <label for="surname">Cognome</label>
     <br>
     <input id="surname" type="text"  placeholder="Inserisci il tuo cognome">
-    <hr>
+
     <button onclick="salva()">Salva</button> <button onclick="ripristina()">Ripristina</button>
    </div>
    <script src="/assets/javascript/impostazioni.js"></script>
