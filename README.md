@@ -1,4 +1,4 @@
-<h1>Progetto realizzato con la classe Java Developer</h1>
+<h1>Progetto realizzato per la classe Java Developer</h1>
 <h3>Home</h3>
 <img src="/screen/home.gif" >
 <br>
